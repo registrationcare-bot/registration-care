@@ -1,0 +1,260 @@
+import Link from "next/link";
+
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUpRight,
+  ShieldCheck,
+} from "lucide-react";
+
+const services = [
+  {
+    name: "GST Registration",
+    href: "/services/gst-registration",
+  },
+  {
+    name: "MSME Registration",
+    href: "/services/msme-registration",
+  },
+  {
+    name: "FSSAI License",
+    href: "/services/fssai-license",
+  },
+  {
+    name: "Trademark Registration",
+    href: "/services/trademark-registration",
+  },
+];
+
+const companyLinks = [
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Services",
+    href: "/services",
+  },
+  {
+    name: "Blog",
+    href: "/blog",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
+
+const legalLinks = [
+  {
+    name: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    name: "Terms & Conditions",
+    href: "/terms-and-conditions",
+  },
+  {
+    name: "Refund Policy",
+    href: "/refund-policy",
+  },
+  {
+    name: "Disclaimer",
+    href: "/disclaimer",
+  },
+];
+
+export default function Footer() {
+  return (
+    <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
+      
+      {/* Soft Glow */}
+      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-50 blur-3xl" />
+
+      <div className="container-custom relative">
+        
+        {/* Main Footer */}
+        <div className="grid gap-12 py-16 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
+          
+          {/* Brand */}
+          <div>
+            
+            <Link
+              href="/"
+              className="flex items-center gap-3"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0B1F33] to-[#2563EB] text-lg font-bold text-white shadow-lg shadow-blue-500/10">
+                RC
+              </div>
+
+              <div>
+                <h2 className="text-[26px] font-bold tracking-tight text-[#0B1F33]">
+                  Registration Care
+                </h2>
+
+                <p className="text-sm text-slate-500">
+                  Business Compliance Services
+                </p>
+              </div>
+            </Link>
+
+            <p className="mt-6 max-w-sm text-[15px] leading-7 text-slate-600">
+              Professional consultation and compliance-related
+              assistance for startups, entrepreneurs and businesses
+              across India.
+            </p>
+
+            {/* Trust Badge */}
+            <div className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-green-100 bg-[#ECFDF3] px-4 py-3 text-sm font-medium text-[#047857]">
+              <ShieldCheck className="h-5 w-5" />
+              Structured Business Assistance
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            
+            <h3 className="text-lg font-semibold text-[#0B1F33]">
+              Services
+            </h3>
+
+            <div className="mt-6 space-y-4">
+              {services.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="group flex items-center gap-2 text-[15px] text-slate-600 transition hover:text-[#2563EB]"
+                >
+                  {item.name}
+
+                  <ArrowUpRight className="h-4 w-4 opacity-0 transition group-hover:opacity-100" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Company */}
+          <div>
+            
+            <h3 className="text-lg font-semibold text-[#0B1F33]">
+              Company
+            </h3>
+
+            <div className="mt-6 space-y-4">
+              {companyLinks.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="group flex items-center gap-2 text-[15px] text-slate-600 transition hover:text-[#2563EB]"
+                >
+                  {item.name}
+
+                  <ArrowUpRight className="h-4 w-4 opacity-0 transition group-hover:opacity-100" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            
+            <h3 className="text-lg font-semibold text-[#0B1F33]">
+              Legal
+            </h3>
+
+            <div className="mt-6 space-y-4">
+              {legalLinks.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="group flex items-center gap-2 text-[15px] text-slate-600 transition hover:text-[#2563EB]"
+                >
+                  {item.name}
+
+                  <ArrowUpRight className="h-4 w-4 opacity-0 transition group-hover:opacity-100" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Bar */}
+        <div className="border-t border-slate-200 py-8">
+          
+          <div className="grid gap-4 md:grid-cols-3">
+            
+            {/* Phone */}
+            <div className="flex items-center gap-4 rounded-2xl bg-[#F8FAFC] p-4">
+              
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#2563EB] shadow-sm">
+                <Phone className="h-5 w-5" />
+              </div>
+
+              <div>
+                <p className="text-sm text-slate-500">
+                  Phone
+                </p>
+
+                <p className="text-[15px] font-medium text-slate-700">
+                  +91 8252080029
+                </p>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="flex items-center gap-4 rounded-2xl bg-[#F8FAFC] p-4">
+              
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#2563EB] shadow-sm">
+                <Mail className="h-5 w-5" />
+              </div>
+
+              <div>
+                <p className="text-sm text-slate-500">
+                  Email
+                </p>
+
+                <p className="text-[15px] font-medium text-slate-700">
+                  info@registrationcare.com
+                </p>
+              </div>
+            </div>
+
+            {/* Area */}
+            <div className="flex items-center gap-4 rounded-2xl bg-[#F8FAFC] p-4">
+              
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#2563EB] shadow-sm">
+                <MapPin className="h-5 w-5" />
+              </div>
+
+              <div>
+                <p className="text-sm text-slate-500">
+                  Service Area
+                </p>
+
+                <p className="text-[15px] font-medium text-slate-700">
+                  Support Across India
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-slate-200 py-6">
+          
+          <div className="flex flex-col gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left">
+            
+            <p className="text-sm text-slate-500">
+              © 2026 Registration Care. All rights reserved.
+            </p>
+
+            <p className="text-sm text-slate-500">
+              Designed for modern business compliance assistance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
