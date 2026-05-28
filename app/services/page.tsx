@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
@@ -12,49 +13,15 @@ import {
   BriefcaseBusiness,
 } from "lucide-react";
 
-const services = [
-  {
-    title: "GST Registration",
-    description:
-      "GST registration and compliance assistance for businesses and startups.",
-    href: "/services/gst-registration",
-    icon: FileText,
-  },
-  {
-    title: "MSME Registration",
-    description:
-      "MSME/Udyam registration assistance and startup support guidance.",
-    href: "/services/msme-registration",
-    icon: BadgeCheck,
-  },
-  {
-    title: "FSSAI License",
-    description:
-      "FSSAI licensing and food business compliance support services.",
-    href: "/services/fssai-license",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Trademark Registration",
-    description:
-      "Trademark filing and brand protection consultation support.",
-    href: "/services/trademark-registration",
-    icon: FileBadge,
-  },
-  {
-    title: "Company Registration",
-    description:
-      "Business incorporation and company registration assistance.",
-    href: "/services/company-registration",
-    icon: Building2,
-  },
-  {
-    title: "IEC Code",
-    description:
-      "Import Export Code registration support for businesses.",
-    href: "/services/iec-code",
-    icon: BriefcaseBusiness,
-  },
+import { services } from "@/data/services";
+
+const icons = [
+  FileText,
+  BadgeCheck,
+  ShieldCheck,
+  FileBadge,
+  Building2,
+  BriefcaseBusiness,
 ];
 
 export default function ServicesPage() {
@@ -63,10 +30,9 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="border-b border-slate-100 bg-[#F8FAFC]">
+      <section className="border-b border-[#E7EFEA] bg-[#F6FBF7]">
         <div className="container-custom section-padding">
-          
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1D4ED8]">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#F59E0B]">
             Our Services
           </p>
 
@@ -82,32 +48,35 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#F9FCFA]">
         <div className="container-custom">
-          
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service, index) => {
-              const Icon = service.icon;
+              const Icon = icons[index % icons.length];
 
               return (
                 <Link
                   key={index}
-                  href={service.href}
-                  className="group rounded-3xl border border-slate-200 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-sm"
+                  href={`/services/${service.slug}`}
+                  className="group rounded-3xl border border-[#D8E8DD] bg-[#F2F8F4] p-8 transition duration-300 hover:-translate-y-1 hover:border-[#BCD7C5] hover:bg-[#F7FBF8] hover:shadow-sm"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-[#1D4ED8] transition group-hover:bg-[#1D4ED8] group-hover:text-white">
+                  {/* Icon */}
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FBE2C4] bg-[#FFF4E8] text-[#F59E0B] transition group-hover:bg-[#F59E0B] group-hover:text-white">
                     <Icon className="h-7 w-7" />
                   </div>
 
+                  {/* Title */}
                   <h2 className="mt-6 text-2xl font-semibold text-[#0B1F33]">
                     {service.title}
                   </h2>
 
+                  {/* Description */}
                   <p className="mt-4 leading-7 text-slate-600">
                     {service.description}
                   </p>
 
-                  <div className="mt-6 text-sm font-medium text-[#1D4ED8]">
+                  {/* CTA */}
+                  <div className="mt-6 text-sm font-medium text-[#F59E0B]">
                     Learn More →
                   </div>
                 </Link>
