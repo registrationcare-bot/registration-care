@@ -3,6 +3,8 @@
 import * as React from "react"
 import { Dialog as SheetPrimitive } from "radix-ui"
 
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { XIcon } from "lucide-react"
@@ -66,7 +68,13 @@ function SheetContent({
           className
         )}
         {...props}
-      >
+>
+
+  <VisuallyHidden>
+  <SheetPrimitive.Title>
+    Navigation Menu
+  </SheetPrimitive.Title>
+</VisuallyHidden>
         {children}
         {showCloseButton && (
           <SheetPrimitive.Close data-slot="sheet-close" asChild>
