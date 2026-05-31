@@ -1,4 +1,4 @@
-
+import { onboardingFields } from "./onboarding-fields";
 export interface Service {
   slug: string;
 
@@ -35,14 +35,30 @@ export interface Service {
   };
 
   onboardingFields?: {
-    label: string;
+  label: string;
 
-    type: string;
+  description?: string;
 
-    required: boolean;
+  helpText?: string;
 
-    options?: string[];
-  }[];
+  example?: string;
+
+  placeholder?: string;
+
+  type:
+    | "text"
+    | "email"
+    | "tel"
+    | "number"
+    | "textarea"
+    | "select";
+
+  required: boolean;
+
+  section?: string;
+
+  options?: string[];
+}[];
 
   faqs?: {
     question: string;
@@ -114,6 +130,9 @@ export const services: Service[] = [
       "GST Return Filing",
       "Company Registration",
     ],
+
+    onboardingFields:
+  onboardingFields.gstRegistration,
 
     faqs: [
       {

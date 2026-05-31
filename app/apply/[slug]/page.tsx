@@ -78,42 +78,99 @@ const service = services.find(
     }
   };
 
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
-    e.preventDefault();
+  
+const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
 
-    const newErrors: Record<string, string> = {};
+  const newErrors: Record<string, string> = {};
 
-    service.onboardingFields?.forEach((field) => {
-      if (
-        field.required &&
-        !formData[field.label]
-      ) {
-        newErrors[field.label] =
-          `${field.label} is required`;
-      }
-    });
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length > 0) {
-      return;
+  service.onboardingFields?.forEach((field) => {
+    if (
+      field.required &&
+      !formData[field.label]
+    ) {
+      newErrors[field.label] =
+        `${field.label} is required`;
     }
+  });
 
+  setErrors(newErrors);
+
+  if (Object.keys(newErrors).length > 0) {
+    return;
+  }
+
+  try {
     setLoading(true);
 
-    console.log("FORM DATA:", formData);
+    const response = await fetch(
+      "/api/leads",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type":
+            "application/json",
+        },
+    body: JSON.stringify({
+  name:
+    formData["Full Name"] || "",
+  phone:
+    formData["Mobile Number"] || "",
+  email:
+    formData["Email Address"] || "",
+  service:
+    service.title,
+  form_data: formData,
+}),
+      }
+    );
 
-    setTimeout(() => {
-      setLoading(false);
+    const data = await response.json();
 
-      alert(
-        "Redirecting to secure payment gateway."
-      );
-    }, 1500);
-  };
+if (!data.success) {
+  throw new Error(
+    data.message ||
+      "Failed to submit application"
+  );
+}
 
+alert(
+  "Application submitted successfully."
+);
+
+setFormData({});
+  
+
+  } catch (error) {
+  console.error(error);
+
+  alert(
+    "Something went wrong. Please try again."
+  );
+} finally {
+  setLoading(false);
+}
+};
+
+
+const groupedFields =
+  service.onboardingFields?.reduce(
+    (acc, field) => {
+      const section =
+        field.section || "General Information";
+
+      if (!acc[section]) {
+        acc[section] = [];
+      }
+
+      acc[section].push(field);
+
+      return acc;
+    },
+    {} as Record<string, typeof service.onboardingFields>
+  ) || {};
   return (
     <main className="bg-[#FCFEFC]">
       <Navbar />
@@ -270,82 +327,124 @@ const service = services.find(
                 className="mt-10 space-y-6"
               >
 
-                {/* DYNAMIC FIELDS */}
-                {service.onboardingFields?.map((field, index) => (
-                  <div key={index}>
+                
+              
+{/* DYNAMIC FIELDS */}
+{Object.entries(groupedFields).map(
+  ([section, fields]) => (
+    <div
+      key={section}
+      className="space-y-6"
+    >
+      <div className="border-b border-[#E7EFEA] pb-4">
+        <h3 className="text-xl font-bold text-[#0B1F33]">
+          {section}
+        </h3>
+      </div>
 
-                    <Label className="flex items-center gap-1">
-                      {field.label}
+      {fields?.map((field, index) => (
+        <div key={index}>
+          <Label className="flex items-center gap-1">
+            {field.label}
 
-                      {field.required && (
-                        <span className="text-red-500">
-                          *
-                        </span>
-                      )}
-                    </Label>
+            {field.required && (
+              <span className="text-red-500">
+                *
+              </span>
+            )}
+          </Label>
 
-                    {field.type === "textarea" ? (
-                      <Textarea
-                        placeholder={`Enter ${field.label.toLowerCase()}`}
-                        className="mt-2 min-h-[120px] rounded-2xl border-[#D8E8DD]"
-                        required={field.required}
-                        value={formData[field.label] || ""}
-                        onChange={(e) =>
-                          handleChange(
-                            field.label,
-                            e.target.value
-                          )
-                        }
-                      />
-                    ) : field.type === "select" ? (
-                      <select
-                        className="mt-2 flex h-12 w-full rounded-2xl border border-[#D8E8DD] bg-white px-4 text-sm outline-none"
-                        required={field.required}
-                        value={formData[field.label] || ""}
-                        onChange={(e) =>
-                          handleChange(
-                            field.label,
-                            e.target.value
-                          )
-                        }
-                      >
-                        <option value="">
-                          Select {field.label}
-                        </option>
+          {field.description && (
+            <p className="mt-1 text-sm text-slate-500">
+              {field.description}
+            </p>
+          )}
 
-                        {field.options?.map(
-                          (option, optionIndex) => (
-                            <option
-                              key={optionIndex}
-                              value={option}
-                            >
-                              {option}
-                            </option>
-                          )
-                        )}
-                      </select>
-                    ) : (
-                      <Input
-                        placeholder={`Enter ${field.label.toLowerCase()}`}
-                        className="mt-2 h-12 rounded-2xl border-[#D8E8DD]"
-                        required={field.required}
-                        value={formData[field.label] || ""}
-                        onChange={(e) =>
-                          handleChange(
-                            field.label,
-                            e.target.value
-                          )
-                        }
-                      />
-                    )}
+          {field.type === "textarea" ? (
+            <Textarea
+              placeholder={
+                field.placeholder ||
+                `Enter ${field.label.toLowerCase()}`
+              }
+              className="mt-2 min-h-[120px] rounded-2xl border-[#D8E8DD]"
+              required={field.required}
+              value={formData[field.label] || ""}
+              onChange={(e) =>
+                handleChange(
+                  field.label,
+                  e.target.value
+                )
+              }
+            />
+          ) : field.type === "select" ? (
+            <select
+              className="mt-2 flex h-12 w-full rounded-2xl border border-[#D8E8DD] bg-white px-4 text-sm outline-none"
+              required={field.required}
+              value={formData[field.label] || ""}
+              onChange={(e) =>
+                handleChange(
+                  field.label,
+                  e.target.value
+                )
+              }
+            >
+              <option value="">
+                Select {field.label}
+              </option>
 
-                    {errors[field.label] && (
-                      <p className="mt-2 text-sm text-red-500">
-                        {errors[field.label]}
-                      </p>
-                    )}
-                  </div>
-                ))}
+              {field.options?.map(
+                (option, optionIndex) => (
+                  <option
+                    key={optionIndex}
+                    value={option}
+                  >
+                    {option}
+                  </option>
+                )
+              )}
+            </select>
+          ) : (
+            <Input
+              placeholder={
+                field.placeholder ||
+                `Enter ${field.label.toLowerCase()}`
+              }
+              className="mt-2 h-12 rounded-2xl border-[#D8E8DD]"
+              required={field.required}
+              value={formData[field.label] || ""}
+              onChange={(e) =>
+                handleChange(
+                  field.label,
+                  e.target.value
+                )
+              }
+            />
+          )}
+
+          {field.example && (
+            <p className="mt-2 text-xs text-[#16A34A]">
+              Example: {field.example}
+            </p>
+          )}
+
+          {field.helpText && (
+            <p className="mt-2 text-xs text-[#F59E0B]">
+              {field.helpText}
+            </p>
+          )}
+
+          {errors[field.label] && (
+            <p className="mt-2 text-sm text-red-500">
+              {errors[field.label]}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  )
+)}
+
+
 
                 <button
                   type="submit"
