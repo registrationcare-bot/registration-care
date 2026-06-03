@@ -64,6 +64,26 @@ export default async function ServiceDetailPage({
                 {service.overview}
               </p>
 
+              {service.highlights &&
+  service.highlights.length > 0 && (
+    <div className="mt-8 grid gap-3 sm:grid-cols-2">
+      {service.highlights.map(
+        (item, index) => (
+          <div
+            key={index}
+            className="flex items-center gap-3 rounded-2xl border border-[#D8E8DD] bg-white px-4 py-3"
+          >
+            <BadgeCheck className="h-5 w-5 text-[#16A34A]" />
+
+            <span className="text-sm font-medium text-[#0B1F33]">
+              {item}
+            </span>
+          </div>
+        )
+      )}
+    </div>
+)}
+
               {/* TRUST BADGES */}
               <div className="mt-8 flex flex-wrap gap-3">
                 
@@ -81,6 +101,18 @@ export default async function ServiceDetailPage({
               </div>
 
               {/* CTA */}
+{service.startingPrice && (
+  <div className="mt-8">
+    <p className="text-sm text-slate-500">
+      Starting From
+    </p>
+
+    <p className="text-4xl font-bold text-[#16A34A]">
+      {service.startingPrice}
+    </p>
+  </div>
+)}
+
               <div className="mt-10 flex flex-wrap gap-4">
                 
                 <Link
@@ -105,8 +137,51 @@ export default async function ServiceDetailPage({
             <div className="rounded-[2rem] border border-[#D8E8DD] bg-white p-8 shadow-sm">
               
               <h2 className="text-2xl font-bold text-[#0B1F33]">
-                Service Overview
-              </h2>
+  Why Businesses Choose This Service
+</h2>
+
+<p className="mt-3 text-slate-600">
+  Trusted registration assistance with
+  expert documentation support and
+  guided application processing.
+</p>
+
+<div className="mt-8 grid grid-cols-2 gap-4">
+  <div className="rounded-2xl bg-[#F6FBF7] p-5">
+    <p className="text-sm text-slate-500">
+      Timeline
+    </p>
+
+    <p className="mt-2 text-xl font-bold text-[#0B1F33]">
+      {service.timeline || "3-7 Days"}
+    </p>
+  </div>
+
+  <div className="rounded-2xl bg-[#FFF4E8] p-5">
+    <p className="text-sm text-slate-500">
+      Starting From
+    </p>
+
+    <p className="mt-2 text-xl font-bold text-[#F59E0B]">
+      {service.startingPrice || "Contact Us"}
+    </p>
+  </div>
+</div> 
+
+<div className="mt-8 rounded-[2rem] border border-[#D8E8DD] bg-[#F6FBF7] p-8 text-center">
+  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-sm">
+    <Building2 className="h-12 w-12 text-[#16A34A]" />
+  </div>
+
+  <h3 className="mt-6 text-lg font-semibold text-[#0B1F33]">
+    Registration Assistance
+  </h3>
+
+  <p className="mt-3 text-sm leading-7 text-slate-600">
+    Professional support for documentation,
+    compliance and registration requirements.
+  </p>
+</div>
 
               <div className="mt-8 space-y-5">
                 

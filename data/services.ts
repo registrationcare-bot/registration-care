@@ -10,6 +10,14 @@ export interface Service {
 
   overview: string;
 
+  image?: string;
+
+highlights?: string[];
+
+startingPrice?: string;
+
+popular?: boolean;
+
   eligibility?: string[];
 
   benefits?: string[];
@@ -82,6 +90,19 @@ export const services: Service[] = [
 
     overview:
       "GST registration is essential for businesses requiring Goods and Services Tax compliance. Our team provides structured consultation and documentation assistance for the registration process.",
+
+      image: "/services/gst-registration.svg",
+
+highlights: [
+  "Get GST Certificate",
+  "Claim Input Tax Credit",
+  "Sell on Amazon & Flipkart",
+  "Work With Large Companies",
+],
+
+startingPrice: "₹999",
+
+popular: true,
 
     eligibility: [
       "Businesses exceeding GST turnover threshold",
@@ -173,6 +194,19 @@ export const services: Service[] = [
     overview:
       "MSME registration helps businesses access government schemes, benefits and recognition under the Udyam registration framework.",
 
+      image: "/services/msme-registration.svg",
+
+highlights: [
+  "Udyam Certificate",
+  "Government Benefits",
+  "MSME Recognition",
+  "Easy Registration",
+],
+
+startingPrice: "₹499",
+
+popular: true,
+
     benefits: [
       "MSME recognition support",
       "Guidance for government benefits",
@@ -200,6 +234,19 @@ export const services: Service[] = [
 
     overview:
       "FSSAI licensing is required for food-related businesses and operations. We provide consultation and application assistance for licensing support.",
+
+      image: "/services/fssai-license.svg",
+
+highlights: [
+  "Food License",
+  "Business Compliance",
+  "Online Registration",
+  "Legal Operations",
+],
+
+startingPrice: "₹999",
+
+popular: true,
 
     benefits: [
       "Food business compliance support",
@@ -229,6 +276,19 @@ export const services: Service[] = [
     overview:
       "Trademark registration helps businesses protect brand names, logos and intellectual property rights.",
 
+      image: "/services/trademark-registration.svg",
+
+highlights: [
+  "Protect Your Brand",
+  "Trademark Application",
+  "Legal Ownership",
+  "Nationwide Protection",
+],
+
+startingPrice: "₹1499",
+
+popular: true,
+
     benefits: [
       "Brand protection support",
       "Trademark filing assistance",
@@ -254,6 +314,19 @@ export const services: Service[] = [
 
     overview:
       "Professional company registration consultation and documentation support for business incorporation.",
+
+      image: "/services/company-registration.svg",
+
+highlights: [
+  "Private Limited Company",
+  "Startup Friendly",
+  "MCA Registration",
+  "Business Incorporation",
+],
+
+startingPrice: "₹4999",
+
+popular: true,
 
     benefits: [
       "Business incorporation support",
@@ -307,6 +380,19 @@ export const services: Service[] = [
     overview:
       "Professional Startup India registration and startup ecosystem consultation support.",
 
+      image: "/services/startup-india-registration.svg",
+
+highlights: [
+  "DPIIT Recognition",
+  "Startup Benefits",
+  "Tax Exemptions",
+  "Government Support",
+],
+
+startingPrice: "₹1999",
+
+popular: false,
+
     benefits: [
       "Startup recognition support",
       "Government scheme guidance",
@@ -333,6 +419,20 @@ export const services: Service[] = [
     overview:
       "IEC registration support for import-export businesses and international trade operations.",
 
+
+      image: "/services/iec-code.svg",
+
+highlights: [
+  "Import Export License",
+  "International Trade",
+  "DGFT Registration",
+  "Lifetime Validity",
+],
+
+startingPrice: "₹999",
+
+popular: true,
+
     benefits: [
       "Import export compliance",
       "International trade support",
@@ -358,6 +458,19 @@ export const services: Service[] = [
 
     overview:
       "Professional GeM portal registration and seller onboarding support.",
+
+      image: "/services/gem-registration.svg",
+
+highlights: [
+  "Government Marketplace",
+  "Sell To Government",
+  "Vendor Registration",
+  "Tender Opportunities",
+],
+
+startingPrice: "₹1499",
+
+popular: false,
 
     benefits: [
       "Government marketplace access",
@@ -475,4 +588,92 @@ export const services: Service[] = [
       "Photograph",
     ],
   },
+
+  {
+  slug: "income-tax-filing",
+
+  category: "Tax Compliance",
+
+  title: "Income Tax Filing",
+
+  description:
+    "Professional Income Tax Return (ITR) filing and tax consultation services for individuals, professionals and businesses.",
+
+  overview:
+    "Income Tax Filing helps individuals and businesses comply with tax regulations while ensuring accurate return filing. Our team provides structured assistance for preparing and filing income tax returns.",
+
+  image: "/services/income-tax-filing.svg",
+
+  highlights: [
+    "ITR Filing Assistance",
+    "Tax Compliance Support",
+    "Professional Consultation",
+    "Accurate Return Filing",
+  ],
+
+  startingPrice: "₹499",
+
+  popular: true,
+
+  benefits: [
+    "Professional tax filing support",
+    "Accurate return preparation",
+    "Compliance assistance",
+    "Tax consultation guidance",
+    "Documentation support",
+  ],
+
+  documents: [
+    "PAN Card",
+    "Aadhaar Card",
+    "Bank Statements",
+    "Form 16 (if applicable)",
+    "Investment Proofs",
+    "Income Documents",
+  ],
+
+  process: [
+    "Requirement assessment",
+    "Document collection",
+    "Income and deduction review",
+    "Return preparation",
+    "ITR filing",
+    "Acknowledgement delivery",
+  ],
+
+  timeline: "1-3 working days",
+
+  governmentFees:
+    "No government fee for standard income tax return filing.",
+
+  professionalFees:
+    "Professional fees vary depending on return type and complexity.",
+
+  relatedServices: [
+    "GST Registration",
+    "MSME Registration",
+    "Company Registration",
+  ],
+
+  faqs: [
+    {
+      question: "Who should file Income Tax Returns?",
+      answer:
+        "Individuals and businesses whose income exceeds applicable limits or who wish to claim refunds should file income tax returns.",
+    },
+
+    {
+      question: "What documents are required for ITR filing?",
+      answer:
+        "Common documents include PAN, Aadhaar, Form 16, bank statements and income-related documents.",
+    },
+
+    {
+      question: "How long does ITR filing take?",
+      answer:
+        "Most returns can be prepared and filed within a few working days after receiving all required documents.",
+    },
+  ],
+},
+
 ];
