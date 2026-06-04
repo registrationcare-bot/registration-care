@@ -1,60 +1,100 @@
+
 import {
   ShieldCheck,
   BadgeCheck,
   Headphones,
   Clock3,
+  CheckCircle2,
+  FileCheck2,
 } from "lucide-react";
 
 const trustItems = [
   {
-    title: "Secure Process",
+    title: "Secure Documentation",
     description:
-      "Safe document handling and structured registration assistance for businesses.",
+      "Safe handling of business registration and compliance documents with a structured process.",
     icon: ShieldCheck,
   },
   {
-    title: "Expert Assistance",
+    title: "Expert Guidance",
     description:
-      "Professional guidance for registrations and compliance-related processes.",
+      "Professional assistance for GST, MSME, FSSAI, Trademark and business registrations.",
     icon: BadgeCheck,
   },
   {
-    title: "Fast Support",
+    title: "Fast Response",
     description:
-      "Quick responses and streamlined consultation support for businesses.",
+      "Quick support and consultation to help businesses move forward without delays.",
     icon: Clock3,
   },
   {
-    title: "Dedicated Help",
+    title: "Dedicated Assistance",
     description:
-      "Consultation support throughout the registration and documentation process.",
+      "Guidance throughout documentation, registration and compliance processes.",
     icon: Headphones,
+  },
+];
+
+const stats = [
+  {
+    value: "PAN",
+    label: "India Support",
+  },
+  {
+    value: "100%",
+    label: "Transparent Process",
+  },
+  {
+    value: "Expert",
+    label: "Consultation",
+  },
+  {
+    value: "Secure",
+    label: "Documentation",
   },
 ];
 
 export default function TrustSection() {
   return (
-    <section className="bg-[#F8FAFC] py-20">
-      
-      <div className="container-custom">
-        
-        {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2563EB]">
-            Why Businesses Choose Us
-          </p>
+    <section className="relative overflow-hidden bg-[#F8FAFC] py-20">
+      {/* Background Glow */}
+      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-100/30 blur-3xl" />
 
-          <h2 className="mt-5 text-4xl font-bold leading-tight text-[#0B1F33] md:text-5xl">
-            Professional Registration Assistance With A Structured Approach
+      <div className="container-custom relative">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-[#2563EB]">
+            <CheckCircle2 className="h-4 w-4" />
+            Trusted Registration Assistance
+          </div>
+
+          <h2 className="mt-6 text-4xl font-bold leading-tight text-[#0B1F33] md:text-5xl">
+            Why Businesses Choose Registration Care
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Registration Care helps startups and businesses
-            simplify registrations and compliance-related
-            processes through professional consultation
-            and structured assistance.
+            Professional assistance for registrations, documentation and
+            compliance-related processes with a transparent and structured
+            approach.
           </p>
+        </div>
+
+        {/* Stats */}
+        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm"
+            >
+              <div className="text-3xl font-bold text-[#0B1F33]">
+                {stat.value}
+              </div>
+
+              <div className="mt-2 text-sm text-slate-500">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Cards */}
@@ -65,26 +105,54 @@ export default function TrustSection() {
             return (
               <div
                 key={index}
-                className="group rounded-[2rem] border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_20px_50px_rgba(15,23,42,0.06)]"
+                className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
               >
-                
-                {/* Icon */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-blue-50 text-[#2563EB] transition group-hover:bg-[#2563EB] group-hover:text-white">
-                  <Icon className="h-7 w-7" />
+                {/* Glow */}
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-blue-50 opacity-0 blur-2xl transition group-hover:opacity-100" />
+
+                <div className="relative">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-blue-50 text-[#2563EB] transition group-hover:bg-[#2563EB] group-hover:text-white">
+                    <Icon className="h-7 w-7" />
+                  </div>
+
+                  <h3 className="mt-6 text-xl font-semibold text-[#0B1F33]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 text-[15px] leading-7 text-slate-600">
+                    {item.description}
+                  </p>
                 </div>
-
-                {/* Title */}
-                <h3 className="mt-6 text-[26px] font-semibold leading-tight text-[#0B1F33]">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-                <p className="mt-4 text-[15px] leading-7 text-slate-600">
-                  {item.description}
-                </p>
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Trust Box */}
+        <div className="mt-14 rounded-[2rem] bg-[#0B1F33] p-8 text-white">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 className="text-2xl font-bold">
+                Professional Business Registration Assistance
+              </h3>
+
+              <p className="mt-3 max-w-2xl text-slate-300">
+                Registration Care helps startups, entrepreneurs and businesses
+                simplify registration and compliance-related processes through
+                structured consultation and dedicated support.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white/10 px-6 py-4 text-center">
+              <div className="text-lg font-semibold">
+                PAN India Support
+              </div>
+
+              <div className="text-sm text-slate-300">
+                Remote Assistance Available
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

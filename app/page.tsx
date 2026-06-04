@@ -8,6 +8,7 @@ import ProcessSection from "@/components/home/process-section";
 import WhyChooseSection from "@/components/home/why-choose-section";
 import FAQSection from "@/components/home/faq-section";
 import CTASection from "@/components/home/cta-section";
+import TestimonialsSection from "@/components/home/testimonials-section";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProcessSection />
       <WhyChooseSection />
+      <TestimonialsSection />
       <FAQSection />
       <CTASection />
 
