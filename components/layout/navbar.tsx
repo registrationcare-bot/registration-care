@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { Menu } from "lucide-react";
 
@@ -45,28 +46,22 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur-xl">
       
-      <div className="container-custom flex h-20 items-center justify-between">
+      <div className="container-custom flex h-14 items-center justify-between">
         
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-3"
-        >
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0B1F33] to-[#2563EB] text-base font-bold text-white shadow-md">
-            RC
-          </div>
-
-          <div className="hidden sm:block">
-            <h2 className="text-[20px] font-bold tracking-tight text-[#0B1F33]">
-              Registration Care
-            </h2>
-
-            <p className="text-xs text-slate-500">
-              Business Compliance Services
-            </p>
-          </div>
-        </Link>
-
+       {/* Logo */}
+<Link
+  href="/"
+  className="flex items-center"
+>
+  <Image
+  src="/logo.png"
+  alt="Registration Care"
+  width={320}
+  height={60}
+  priority
+  className="h-10 w-auto object-contain"
+ />
+</Link>
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link, index) => (
@@ -121,19 +116,24 @@ export default function Navbar() {
                   
                   <div className="flex items-center gap-3">
                     
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0B1F33] to-[#2563EB] text-base font-bold text-white shadow-md">
-                      RC
-                    </div>
+                    <div className="relative h-12 w-12 overflow-hidden rounded-2xl">
+  <Image
+    src="/logo.png"
+    alt="Registration Care Logo"
+    fill
+    className="object-contain"
+  />
+</div>
 
-                    <div>
-                      <h2 className="text-lg font-bold leading-none text-[#0B1F33]">
-                        Registration Care
-                      </h2>
+<div>
+  <h2 className="text-lg font-bold leading-none text-[#0B1F33]">
+    Registration Care
+  </h2>
 
-                      <p className="mt-1 text-xs text-slate-500">
-                        Business Compliance Services
-                      </p>
-                    </div>
+  <p className="mt-1 text-xs font-medium text-slate-500">
+    Business Registration & Compliance
+  </p>
+</div>
                   </div>
                 </div>
 

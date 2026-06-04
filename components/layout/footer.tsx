@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import {
   Mail,
@@ -25,6 +26,14 @@ const services = [
     name: "Trademark Registration",
     href: "/services/trademark-registration",
   },
+  {
+    name: "Company Registration",
+    href: "/services/company-registration",
+  },
+  {
+    name: "Income Tax Filing",
+    href: "/services/income-tax-filing",
+  },
 ];
 
 const companyLinks = [
@@ -36,12 +45,10 @@ const companyLinks = [
     name: "Services",
     href: "/services",
   },
-
   {
-  name: "Documentation",
-  href: "/documentation",
-},
-
+    name: "Documentation",
+    href: "/documentation",
+  },
   {
     name: "Blog",
     href: "/blog",
@@ -74,53 +81,40 @@ const legalLinks = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
-      
       {/* Soft Glow */}
       <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-50 blur-3xl" />
 
       <div className="container-custom relative">
-        
         {/* Main Footer */}
         <div className="grid gap-12 py-16 lg:grid-cols-[1.7fr_1fr_1fr_1fr]">
-          
           {/* Brand */}
           <div>
-            
-            <Link
-              href="/"
-              className="flex items-center gap-3"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0B1F33] to-[#2563EB] text-lg font-bold text-white shadow-lg shadow-blue-500/10">
-                RC
-              </div>
-
-              <div>
-                <h2 className="text-[26px] font-bold tracking-tight text-[#0B1F33]">
-                  Registration Care
-                </h2>
-
-                <p className="text-sm text-slate-500">
-                  Business Compliance Services
-                </p>
-              </div>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/logo.png"
+                alt="Registration Care"
+                width={260}
+                height={70}
+                priority
+                className="h-14 w-auto object-contain"
+              />
             </Link>
 
             <p className="mt-6 max-w-sm text-[15px] leading-7 text-slate-600">
-              Professional consultation and compliance-related
-              assistance for startups, entrepreneurs and businesses
-              across India.
+              Professional assistance for GST Registration, MSME Registration,
+              FSSAI License, Trademark Registration, Company Registration and
+              other business compliance services across India.
             </p>
 
             {/* Trust Badge */}
             <div className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-green-100 bg-[#ECFDF3] px-4 py-3 text-sm font-medium text-[#047857]">
               <ShieldCheck className="h-5 w-5" />
-              Structured Business Assistance
+              Trusted Registration Assistance Across India
             </div>
           </div>
 
           {/* Services */}
           <div>
-            
             <h3 className="text-lg font-semibold text-[#0B1F33]">
               Services
             </h3>
@@ -142,7 +136,6 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            
             <h3 className="text-lg font-semibold text-[#0B1F33]">
               Company
             </h3>
@@ -164,7 +157,6 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            
             <h3 className="text-lg font-semibold text-[#0B1F33]">
               Legal
             </h3>
@@ -187,20 +179,15 @@ export default function Footer() {
 
         {/* Contact Bar */}
         <div className="border-t border-slate-200 py-8">
-          
           <div className="grid gap-4 md:grid-cols-3">
-            
             {/* Phone */}
             <div className="flex items-center gap-4 rounded-2xl bg-[#F8FAFC] p-4">
-              
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#2563EB] shadow-sm">
                 <Phone className="h-5 w-5" />
               </div>
 
               <div>
-                <p className="text-sm text-slate-500">
-                  Phone
-                </p>
+                <p className="text-sm text-slate-500">Phone</p>
 
                 <p className="text-[15px] font-medium text-slate-700">
                   +91 8252080029
@@ -210,15 +197,12 @@ export default function Footer() {
 
             {/* Email */}
             <div className="flex items-center gap-4 rounded-2xl bg-[#F8FAFC] p-4">
-              
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#2563EB] shadow-sm">
                 <Mail className="h-5 w-5" />
               </div>
 
               <div>
-                <p className="text-sm text-slate-500">
-                  Email
-                </p>
+                <p className="text-sm text-slate-500">Email</p>
 
                 <p className="text-[15px] font-medium text-slate-700">
                   info@registrationcare.com
@@ -228,15 +212,12 @@ export default function Footer() {
 
             {/* Area */}
             <div className="flex items-center gap-4 rounded-2xl bg-[#F8FAFC] p-4">
-              
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#2563EB] shadow-sm">
                 <MapPin className="h-5 w-5" />
               </div>
 
               <div>
-                <p className="text-sm text-slate-500">
-                  Service Area
-                </p>
+                <p className="text-sm text-slate-500">Service Area</p>
 
                 <p className="text-[15px] font-medium text-slate-700">
                   Support Across India
@@ -248,15 +229,15 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-slate-200 py-6">
-          
           <div className="flex flex-col gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left">
-            
             <p className="text-sm text-slate-500">
-              © 2026 Registration Care. All rights reserved.
+              © 2026 Registration Care. All rights reserved. Registration &
+              Compliance Assistance Platform.
             </p>
 
             <p className="text-sm text-slate-500">
-              Designed for modern business compliance assistance.
+              Designed to simplify business registrations and compliance
+              assistance across India.
             </p>
           </div>
         </div>

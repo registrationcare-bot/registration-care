@@ -1,3 +1,5 @@
+
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -38,22 +40,39 @@ const trustCards = [
   },
 ];
 
+const services = [
+  "GST Registration",
+  "MSME Registration",
+  "FSSAI License",
+  "Trademark",
+  "Company Registration",
+];
+
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-white">
-      
       {/* Background Glow */}
-      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-50 blur-3xl" />
+      <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-blue-50 blur-3xl" />
 
-      <div className="container-custom relative grid gap-16 py-16 lg:grid-cols-2 lg:items-start lg:py-24">
-        
+      <div className="container-custom relative grid gap-12 py-8 lg:grid-cols-2 lg:items-center lg:py-12">
         {/* Left */}
-        <div className="pt-8 lg:pt-14">
-          
+        <div>
           {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-[#2563EB]">
             <ShieldCheck className="h-4 w-4" />
-            Trusted Business Compliance Assistance
+            Trusted Business Registration Platform
+          </div>
+
+          {/* Service Pills */}
+          <div className="mt-6 flex flex-wrap gap-2">
+            {services.map((service) => (
+              <span
+                key={service}
+                className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600"
+              >
+                {service}
+              </span>
+            ))}
           </div>
 
           {/* Heading */}
@@ -63,14 +82,13 @@ export default function HeroSection() {
 
           {/* Description */}
           <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600">
-            Professional assistance for GST, MSME, FSSAI,
-            Trademark, GeM and business compliance services
-            for startups and businesses across India.
+            Professional assistance for GST Registration, MSME Registration,
+            FSSAI License, Trademark Registration, Company Registration and
+            business compliance services across India.
           </p>
 
           {/* CTA */}
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            
             <Link
               href="/contact"
               className="inline-flex h-14 items-center justify-center rounded-2xl bg-[#2563EB] px-8 text-base font-semibold text-white shadow-xl shadow-blue-500/20 transition hover:bg-[#1D4ED8]"
@@ -89,7 +107,6 @@ export default function HeroSection() {
 
           {/* Trust Points */}
           <div className="mt-10 flex flex-wrap gap-6">
-            
             <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
               <BadgeCheck className="h-5 w-5 text-green-500" />
               Expert Guidance
@@ -105,16 +122,49 @@ export default function HeroSection() {
               Fast Support
             </div>
           </div>
+
+          {/* Stats */}
+          <div className="mt-12 grid grid-cols-3 gap-6 border-t border-slate-200 pt-8">
+            <div>
+              <div className="text-3xl font-bold text-[#0B1F33]">500+</div>
+              <div className="mt-1 text-sm text-slate-500">
+                Applications Assisted
+              </div>
+            </div>
+
+            <div>
+              <div className="text-3xl font-bold text-[#0B1F33]">50+</div>
+              <div className="mt-1 text-sm text-slate-500">
+                Cities Served
+              </div>
+            </div>
+
+            <div>
+              <div className="text-3xl font-bold text-[#0B1F33]">PAN</div>
+              <div className="mt-1 text-sm text-slate-500">
+                India Support
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Right Side */}
         <div className="relative">
-          
           <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_20px_80px_rgba(15,23,42,0.08)]">
-            
+            {/* Illustration */}
+            <div className="mb-8 overflow-hidden rounded-3xl border border-slate-100 bg-slate-50">
+              <Image
+                src="/images/hero-illustration.png"
+                alt="Business Registration Consultation"
+                width={700}
+                height={700}
+                priority
+                className="h-auto w-full object-cover"
+              />
+            </div>
+
             {/* Top */}
             <div className="flex items-start justify-between gap-6">
-              
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#2563EB]">
                   Why Businesses Choose Us
@@ -155,33 +205,10 @@ export default function HeroSection() {
                 );
               })}
             </div>
-
-            {/* Bottom Trust Box */}
-            <div className="mt-8 rounded-3xl bg-[#0B1F33] p-6 text-white">
-              
-              <div className="flex items-start gap-4">
-                
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10">
-                  <ShieldCheck className="h-6 w-6 text-blue-300" />
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold">
-                    Structured Consultation Process
-                  </h4>
-
-                  <p className="mt-2 text-sm leading-7 text-slate-300">
-                    Registration Care helps startups and businesses
-                    simplify registration and compliance-related
-                    processes through structured guidance and
-                    professional assistance.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
