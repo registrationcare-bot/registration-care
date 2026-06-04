@@ -89,20 +89,14 @@ export default function HeroSection() {
 
           {/* CTA */}
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="inline-flex h-14 items-center justify-center rounded-2xl bg-[#2563EB] px-8 text-base font-semibold text-white shadow-xl shadow-blue-500/20 transition hover:bg-[#1D4ED8]"
-            >
-              Get Free Consultation
-            </Link>
+           <Link
+  href="/services"
+  className="inline-flex h-14 items-center justify-center rounded-2xl bg-[#2563EB] px-8 text-base font-semibold text-white shadow-xl shadow-blue-500/20 transition hover:bg-[#1D4ED8]"
+>
+  Start Registration
+</Link>
 
-            <Link
-              href="/services"
-              className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl border border-slate-300 bg-white px-8 text-base font-semibold text-[#0B1F33] transition hover:bg-slate-50"
-            >
-              Explore Services
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+           
           </div>
 
           {/* Trust Points */}
@@ -124,29 +118,39 @@ export default function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="mt-12 grid grid-cols-3 gap-6 border-t border-slate-200 pt-8">
-            <div>
-              <div className="text-3xl font-bold text-[#0B1F33]">500+</div>
-              <div className="mt-1 text-sm text-slate-500">
-                Applications Assisted
-              </div>
-            </div>
+        {/* Stats */}
+<div className="mt-12 grid grid-cols-3 gap-3 border-t border-slate-200 pt-8 sm:gap-6">
+  <div className="rounded-2xl bg-slate-50 p-4 text-center">
+    <div className="text-2xl font-bold text-[#0B1F33] sm:text-3xl">
+      500+
+    </div>
 
-            <div>
-              <div className="text-3xl font-bold text-[#0B1F33]">50+</div>
-              <div className="mt-1 text-sm text-slate-500">
-                Cities Served
-              </div>
-            </div>
+    <div className="mt-2 text-xs text-slate-500 sm:text-sm">
+      Applications Assisted
+    </div>
+  </div>
 
-            <div>
-              <div className="text-3xl font-bold text-[#0B1F33]">PAN</div>
-              <div className="mt-1 text-sm text-slate-500">
-                India Support
-              </div>
-            </div>
-          </div>
-        </div>
+  <div className="rounded-2xl bg-slate-50 p-4 text-center">
+    <div className="text-2xl font-bold text-[#0B1F33] sm:text-3xl">
+      50+
+    </div>
+
+    <div className="mt-2 text-xs text-slate-500 sm:text-sm">
+      Cities Served
+    </div>
+  </div>
+
+  <div className="rounded-2xl bg-slate-50 p-4 text-center">
+    <div className="text-2xl font-bold text-[#0B1F33] sm:text-3xl">
+      100%
+    </div>
+
+    <div className="mt-2 text-xs text-slate-500 sm:text-sm">
+      Transparent Process
+    </div>
+  </div>
+</div>
+</div>
 
         {/* Right Side */}
         <div className="relative">

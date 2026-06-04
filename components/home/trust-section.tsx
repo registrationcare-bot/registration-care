@@ -37,20 +37,20 @@ const trustItems = [
 
 const stats = [
   {
-    value: "PAN",
-    label: "India Support",
+    value: "500+",
+    label: "Applications Assisted",
+  },
+  {
+    value: "50+",
+    label: "Cities Served",
   },
   {
     value: "100%",
     label: "Transparent Process",
   },
   {
-    value: "Expert",
-    label: "Consultation",
-  },
-  {
-    value: "Secure",
-    label: "Documentation",
+    value: "24/7",
+    label: "WhatsApp Support",
   },
 ];
 
@@ -84,9 +84,9 @@ export default function TrustSection() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm"
+              className="rounded-[1.75rem] border border-slate-200 bg-white p-6 text-center transition hover:-translate-y-1 hover:border-blue-100 hover:shadow-lg"
             >
-              <div className="text-3xl font-bold text-[#0B1F33]">
+              <div className="text-4xl font-bold tracking-tight text-[#0B1F33]">
                 {stat.value}
               </div>
 
@@ -105,21 +105,21 @@ export default function TrustSection() {
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
+                className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
               >
                 {/* Glow */}
                 <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-blue-50 opacity-0 blur-2xl transition group-hover:opacity-100" />
 
                 <div className="relative">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-blue-50 text-[#2563EB] transition group-hover:bg-[#2563EB] group-hover:text-white">
+                   <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-3xl bg-blue-50 text-[#2563EB] transition group-hover:bg-[#2563EB] group-hover:text-white">
                     <Icon className="h-7 w-7" />
                   </div>
 
-                  <h3 className="mt-6 text-xl font-semibold text-[#0B1F33]">
+                  <h3 className="mt-6 min-h-[56px] text-center text-xl font-semibold text-[#0B1F33]">
                     {item.title}
                   </h3>
 
-                  <p className="mt-4 text-[15px] leading-7 text-slate-600">
+                  <p className="mt-4 flex-1 text-center text-[15px] leading-7 text-slate-600">
                     {item.description}
                   </p>
                 </div>
@@ -128,33 +128,7 @@ export default function TrustSection() {
           })}
         </div>
 
-        {/* Bottom Trust Box */}
-        <div className="mt-14 rounded-[2rem] bg-[#0B1F33] p-8 text-white">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 className="text-2xl font-bold">
-                Professional Business Registration Assistance
-              </h3>
-
-              <p className="mt-3 max-w-2xl text-slate-300">
-                Registration Care helps startups, entrepreneurs and businesses
-                simplify registration and compliance-related processes through
-                structured consultation and dedicated support.
-              </p>
-            </div>
-
-            <div className="rounded-2xl bg-white/10 px-6 py-4 text-center">
-              <div className="text-lg font-semibold">
-                PAN India Support
-              </div>
-
-              <div className="text-sm text-slate-300">
-                Remote Assistance Available
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+       </div>
     </section>
   );
 }

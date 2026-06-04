@@ -42,12 +42,12 @@ export default function ServicesSection() {
                   className="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:border-green-100 hover:shadow-[0_25px_70px_rgba(16,185,129,0.10)]"
                 >
                   {/* Illustration Area */}
-                  <div className="relative h-[220px] overflow-hidden bg-gradient-to-br from-[#F0FDF4] to-[#ECFDF5]">
+                  <div className="relative h-[200px] sm:h-[220px] overflow-hidden bg-gradient-to-br from-[#F0FDF4] to-[#ECFDF5]">
                     <Image
                       src={imagePath}
                       alt={service.title}
                       fill
-                      className="object-cover transition duration-500 group-hover:scale-105"
+                      className="object-contain p-4 transition duration-500 group-hover:scale-105"
                     />
 
                     {service.popular && (
@@ -58,7 +58,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-8">
+                 <div className="flex flex-1 flex-col p-8">
                     <h3 className="text-2xl font-bold leading-tight text-[#0B1F33]">
                       {service.title}
                     </h3>
@@ -113,8 +113,8 @@ export default function ServicesSection() {
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-6 inline-flex items-center gap-2 font-semibold text-[#059669] transition group-hover:gap-3">
-                      Learn More
+                   <div className="mt-auto inline-flex items-center gap-2 pt-6 font-semibold text-[#059669] transition group-hover:gap-3">
+  Apply Now
                       <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import WhatsAppButton from "@/components/layout/whatsapp-button";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,6 +30,8 @@ export default function RootLayout({
         className={`${inter.variable} ${manrope.variable} antialiased`}
       >
         {children}
+
+        <WhatsAppButton />
       </body>
     </html>
   );

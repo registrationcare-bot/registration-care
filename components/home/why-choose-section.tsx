@@ -2,82 +2,83 @@ import {
   ShieldCheck,
   MessagesSquare,
   FileSearch,
-  Building2,
+  Headphones,
+  CheckCircle2,
 } from "lucide-react";
 
 const features = [
   {
     title: "Structured Guidance",
     description:
-      "Professional assistance through registration and compliance-related processes.",
+      "Professional assistance throughout the registration process.",
     icon: ShieldCheck,
-  },
-  {
-    title: "Transparent Communication",
-    description:
-      "Clear updates and process-oriented support throughout the consultation journey.",
-    icon: MessagesSquare,
   },
   {
     title: "Documentation Support",
     description:
-      "Organized assistance for document collection, review and application preparation.",
+      "Help with document preparation, review and submission.",
     icon: FileSearch,
   },
   {
-    title: "Startup-Friendly Approach",
+    title: "Transparent Communication",
     description:
-      "Designed for startups, entrepreneurs and businesses seeking modern compliance support.",
-    icon: Building2,
+      "Clear updates and progress tracking throughout your application.",
+    icon: MessagesSquare,
   },
+  {
+    title: "Dedicated Support",
+    description:
+      "Responsive assistance for startups and growing businesses.",
+    icon: Headphones,
+  },
+];
+
+const trustPoints = [
+  "Secure Process",
+  "Expert Assistance",
+  "WhatsApp Support",
+  "Startup Friendly",
 ];
 
 export default function WhyChooseSection() {
   return (
-    <section className="bg-[#F1F5F9] py-20">
-      
+    <section className="bg-[#F8FAFC] py-16">
       <div className="container-custom">
-        
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          
+        <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2563EB]">
             Why Choose Registration Care
           </p>
 
-          <h2 className="mt-5 text-4xl font-bold leading-tight text-[#0B1F33] md:text-5xl">
-            Professional Assistance With A Modern Consultation Approach
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-[#0B1F33] md:text-4xl">
+            Professional Registration Assistance
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Registration Care focuses on structured guidance,
-            transparent communication and professional assistance
-            for startups and businesses across India.
+          <p className="mx-auto mt-4 text-base leading-7 text-slate-600">
+            Structured support for business registrations,
+            documentation and compliance services across India.
           </p>
         </div>
 
-        {/* Features */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
+        {/* Cards */}
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <div
                 key={index}
-                className="group rounded-[2rem] border border-slate-200 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_20px_60px_rgba(15,23,42,0.06)]"
+                className="group rounded-[1.75rem] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-lg"
               >
-                
-                {/* Icon */}
-                <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-blue-50 text-[#2563EB] transition group-hover:bg-[#2563EB] group-hover:text-white">
-                  <Icon className="h-8 w-8" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-[#2563EB] transition group-hover:bg-[#2563EB] group-hover:text-white">
+                  <Icon className="h-6 w-6" />
                 </div>
 
-                {/* Content */}
-                <h3 className="mt-7 text-[30px] font-semibold leading-tight text-[#0B1F33]">
+                <h3 className="mt-5 text-xl font-semibold text-[#0B1F33]">
                   {feature.title}
                 </h3>
 
-                <p className="mt-4 text-[15px] leading-8 text-slate-600">
+                <p className="mt-3 text-sm leading-7 text-slate-600">
                   {feature.description}
                 </p>
               </div>
@@ -85,34 +86,17 @@ export default function WhyChooseSection() {
           })}
         </div>
 
-        {/* Bottom Card */}
-        <div className="mt-16 rounded-[2.5rem] bg-[#0B1F33] p-10 text-white">
-          
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            
-            {/* Left */}
-            <div>
-              
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-                Business Support
-              </p>
-
-              <h3 className="mt-5 text-4xl font-bold leading-tight">
-                Helping Businesses Navigate Registrations With Confidence
-              </h3>
+        {/* Trust Strip */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 rounded-2xl border border-slate-200 bg-white px-6 py-5">
+          {trustPoints.map((point) => (
+            <div
+              key={point}
+              className="flex items-center gap-2 text-sm font-medium text-slate-700"
+            >
+              <CheckCircle2 className="h-4 w-4 text-green-600" />
+              {point}
             </div>
-
-            {/* Right */}
-            <div>
-              
-              <p className="text-lg leading-8 text-slate-300">
-                Registration Care provides consultation and
-                compliance-related assistance for startups,
-                entrepreneurs and businesses seeking structured
-                support for registrations and documentation processes.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

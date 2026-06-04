@@ -1,129 +1,150 @@
-import { Star } from "lucide-react";
+import Image from "next/image";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
     name: "Rahul Sharma",
+    image: "rahul-sharma.jpg",
     business: "E-commerce Seller",
+    service: "GST Registration",
     review:
-      "The team guided me through the GST registration process and answered all my questions promptly. The overall experience was smooth and professional.",
+      "The GST registration process was handled professionally. The team kept me informed throughout and made the entire process hassle-free.",
   },
   {
     name: "Priya Verma",
+    image: "priya-verma.jpg",
     business: "Food Business Owner",
+    service: "FSSAI License",
     review:
-      "I needed assistance with FSSAI licensing and documentation. Registration Care provided clear guidance and regular updates throughout the process.",
+      "Excellent documentation support and clear communication. The licensing process was completed smoothly and on time.",
   },
   {
     name: "Amit Kumar",
+    image: "amit-kumar.jpg",
     business: "Startup Founder",
+    service: "Company Registration",
     review:
-      "The consultation was helpful and the documentation support saved us a lot of time. I would recommend their services to new businesses.",
+      "Professional guidance throughout company incorporation. The team helped us understand every step clearly.",
   },
   {
     name: "Sneha Gupta",
+    image: "sneha-gupta.jpg",
     business: "Retail Business Owner",
+    service: "Trademark Registration",
     review:
-      "Very professional communication and a structured process. The team helped us understand the requirements and complete the registration smoothly.",
+      "The trademark filing process was straightforward and transparent. Highly satisfied with the support received.",
   },
   {
     name: "Vikram Singh",
+    image: "vikram-singh.jpg",
     business: "Importer & Exporter",
+    service: "IEC Registration",
     review:
-      "Excellent support for IEC registration. The guidance was clear and the process was much easier than I expected.",
+      "Quick assistance and regular updates. IEC registration was completed faster than expected.",
   },
   {
     name: "Neha Agarwal",
+    image: "neha-agarwal.jpg",
     business: "Small Business Owner",
+    service: "MSME Registration",
     review:
-      "Responsive support, transparent communication and professional assistance throughout the registration journey.",
+      "Responsive support team and smooth documentation process. Great experience overall.",
   },
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden bg-white py-16">
       <div className="container-custom">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2563EB]">
-            Client Feedback
+            Client Testimonials
           </p>
 
-          <h2 className="mt-5 text-4xl font-bold leading-tight text-[#0B1F33] md:text-5xl">
-            What Businesses Say About Registration Care
+          <h2 className="mt-4 text-4xl font-bold leading-tight text-[#0B1F33] md:text-5xl">
+            Trusted By Startups & Businesses Across India
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Feedback from business owners who received registration and
-            compliance-related assistance.
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+            Real experiences from entrepreneurs, startups and business owners
+            who used Registration Care services.
           </p>
         </div>
 
-        {/* Testimonials */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {/* Testimonials Grid */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="group rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
+              className="group rounded-[2rem] border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
             >
-              {/* Stars */}
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-5 w-5 fill-yellow-400 text-yellow-400"
+              {/* Top */}
+              <div className="flex items-center gap-4">
+                <div className="relative h-14 w-14 overflow-hidden rounded-full border border-slate-200">
+                  <Image
+                    src={`/images/testimonials/${item.image}`}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
                   />
-                ))}
-              </div>
-
-              {/* Review */}
-              <p className="mt-6 text-[15px] leading-8 text-slate-600">
-                "{item.review}"
-              </p>
-
-              {/* User */}
-              <div className="mt-8 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] text-sm font-bold text-white">
-                  {item.name
-                    .split(" ")
-                    .map((word) => word[0])
-                    .join("")}
                 </div>
 
                 <div>
-                  <p className="font-semibold text-[#0B1F33]">
+                  <h3 className="font-semibold text-[#0B1F33]">
                     {item.name}
-                  </p>
+                  </h3>
 
                   <p className="text-sm text-slate-500">
                     {item.business}
                   </p>
                 </div>
               </div>
+
+              {/* Service Badge */}
+              <div className="mt-5 inline-flex rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-[#2563EB]">
+                {item.service}
+              </div>
+
+              {/* Stars */}
+              <div className="mt-5 flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+
+              {/* Quote Icon */}
+              <div className="mt-5">
+                <Quote className="h-8 w-8 text-blue-100" />
+              </div>
+
+              {/* Review */}
+              <p className="mt-4 text-[15px] leading-7 text-slate-600">
+                "{item.review}"
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Bottom Trust Box */}
-        <div className="mt-16 rounded-[2.5rem] bg-[#0B1F33] p-10 text-white">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-                Trusted Assistance
-              </p>
+        {/* Bottom Trust Strip */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] px-6 py-5">
+          <div className="text-sm font-medium text-slate-700">
+            ⭐ 5-Star Client Experience
+          </div>
 
-              <h3 className="mt-4 text-3xl font-bold">
-                Supporting Businesses Across India
-              </h3>
-            </div>
+          <div className="text-sm font-medium text-slate-700">
+            ✓ Transparent Communication
+          </div>
 
-            <div>
-              <p className="text-lg leading-8 text-slate-300">
-                Registration Care provides structured guidance and
-                professional assistance for registrations, documentation
-                and compliance-related processes.
-              </p>
-            </div>
+          <div className="text-sm font-medium text-slate-700">
+            ✓ Documentation Support
+          </div>
+
+          <div className="text-sm font-medium text-slate-700">
+            ✓ Dedicated Assistance
           </div>
         </div>
       </div>
