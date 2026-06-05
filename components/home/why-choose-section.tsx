@@ -1,104 +1,120 @@
+
+import Image from "next/image";
+import Link from "next/link";
+
 import {
-  ShieldCheck,
-  MessagesSquare,
-  FileSearch,
-  Headphones,
   CheckCircle2,
+  ArrowRight,
 } from "lucide-react";
 
-const features = [
-  {
-    title: "Structured Guidance",
-    description:
-      "Professional assistance throughout the registration process.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Documentation Support",
-    description:
-      "Help with document preparation, review and submission.",
-    icon: FileSearch,
-  },
-  {
-    title: "Transparent Communication",
-    description:
-      "Clear updates and progress tracking throughout your application.",
-    icon: MessagesSquare,
-  },
-  {
-    title: "Dedicated Support",
-    description:
-      "Responsive assistance for startups and growing businesses.",
-    icon: Headphones,
-  },
+const benefits = [
+  "Professional Registration Assistance",
+  "Documentation Review & Support",
+  "Transparent Communication",
+  "Dedicated Business Support",
+  "PAN India Service Coverage",
+  "Startup Friendly Process",
 ];
 
-const trustPoints = [
-  "Secure Process",
-  "Expert Assistance",
-  "WhatsApp Support",
-  "Startup Friendly",
+const stats = [
+  {
+    value: "500+",
+    label: "Applications Assisted",
+  },
+  {
+    value: "50+",
+    label: "Cities Served",
+  },
+  {
+    value: "24/7",
+    label: "WhatsApp Support",
+  },
+  {
+    value: "100%",
+    label: "Transparent Process",
+  },
 ];
 
 export default function WhyChooseSection() {
   return (
-    <section className="bg-[#F8FAFC] py-16">
+    <section className="bg-[#F8FAFC] py-24">
       <div className="container-custom">
-        {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2563EB]">
-            Why Choose Registration Care
-          </p>
-
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-[#0B1F33] md:text-4xl">
-            Professional Registration Assistance
-          </h2>
-
-          <p className="mx-auto mt-4 text-base leading-7 text-slate-600">
-            Structured support for business registrations,
-            documentation and compliance services across India.
-          </p>
-        </div>
-
-        {/* Cards */}
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-
-            return (
-              <div
-                key={index}
-                className="group rounded-[1.75rem] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-lg"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-[#2563EB] transition group-hover:bg-[#2563EB] group-hover:text-white">
-                  <Icon className="h-6 w-6" />
-                </div>
-
-                <h3 className="mt-5 text-xl font-semibold text-[#0B1F33]">
-                  {feature.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {feature.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Trust Strip */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 rounded-2xl border border-slate-200 bg-white px-6 py-5">
-          {trustPoints.map((point) => (
+        {/* Stats */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => (
             <div
-              key={point}
-              className="flex items-center gap-2 text-sm font-medium text-slate-700"
+              key={stat.label}
+              className="rounded-[2rem] border border-slate-200 bg-white p-8 text-center shadow-sm"
             >
-              <CheckCircle2 className="h-4 w-4 text-green-600" />
-              {point}
+              <div className="text-4xl font-bold text-[#0B1F33]">
+                {stat.value}
+              </div>
+
+              <div className="mt-2 text-slate-500">
+                {stat.label}
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Main Content */}
+        <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:items-center">
+          {/* Illustration */}
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <Image
+              src="/images/business-consultation-illustration.png"
+              alt="Business Consultation"
+              width={700}
+              height={700}
+              className="h-auto w-full"
+            />
+          </div>
+
+          {/* Content */}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2563EB]">
+              Why Businesses Trust Registration Care
+            </p>
+
+            <h2 className="mt-5 text-4xl font-bold leading-tight text-[#0B1F33] md:text-5xl">
+              Professional Guidance For Business Registrations & Compliance
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              Registration Care provides structured assistance for
+              registrations, licenses and compliance-related services
+              for startups, entrepreneurs and businesses across India.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {benefits.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3"
+                >
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+
+                  <span className="text-slate-700">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-2xl bg-[#2563EB] px-8 py-4 font-semibold text-white transition hover:bg-[#1D4ED8]"
+              >
+                Get Free Consultation
+
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
